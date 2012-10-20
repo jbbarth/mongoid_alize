@@ -9,6 +9,7 @@ def three?
 end
 
 Mongoid.configure do |config|
+  Dir.mkdir("log") unless File.exists?("log")
   if three?
     config.connect_to("mongoid_alize_test")
     Moped.logger = Logger.new("log/test.log")
